@@ -17,13 +17,14 @@ public class CreepersCurse {
     @SubscribeEvent
     public static void updateToCreeper(EntityTickEvent.Pre event) {
         if(Config.nowRule.equals(Config.creepersCurse) || Config.nowRule.equals(Config.allCurse)) {
-            if(event.getEntity() instanceof Mob) {
-                if(!(event.getEntity() instanceof Creeper) && !(event.getEntity() instanceof Ghast)) {
-                    Level level = event.getEntity().level();
-                    double x = event.getEntity().getX();
-                    double y = event.getEntity().getY();
-                    double z = event.getEntity().getZ();
-                    event.getEntity().setRemoved(Entity.RemovalReason.KILLED);
+            Entity entity = event.getEntity();
+            if(entity instanceof Mob) {
+                if(!(entity instanceof Creeper) && !(entity instanceof Ghast)) {
+                    Level level = entity.level();
+                    double x = entity.getX();
+                    double y = entity.getY();
+                    double z = entity.getZ();
+                    entity.setRemoved(Entity.RemovalReason.KILLED);
                     Creeper creeper = new Creeper(EntityType.CREEPER,level);
                     creeper.setPos(x,y,z);
                     creeper.getAttributes().getInstance(Attributes.MOVEMENT_SPEED).setBaseValue(0.4f);

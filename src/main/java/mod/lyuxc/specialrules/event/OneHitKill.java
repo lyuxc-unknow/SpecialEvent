@@ -1,6 +1,8 @@
 package mod.lyuxc.specialrules.event;
 
 import mod.lyuxc.specialrules.Config;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.LivingEntity;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.entity.living.LivingAttackEvent;
@@ -9,11 +11,13 @@ import net.neoforged.neoforge.event.entity.living.LivingAttackEvent;
 public class OneHitKill {
     @SubscribeEvent
     public static void onAttack(LivingAttackEvent event) {
+        LivingEntity entity = event.getEntity();
+        Entity source = event.getSource().getEntity();
         if(Config.nowRule.equals(Config.oneHitOneKill) || Config.nowRule.equals(Config.allCurse)) {
-            if( event.getSource().getEntity() != event.getEntity() && event.getAmount() > Float.MIN_VALUE && event.getEntity().attackable()) {
-                if(event.getEntity().getHealth() > 0) {
-                    event.getEntity().setHealth(0.5f);
-                    event.getEntity().die(event.getSource());
+            if(source != entity && event.getAmount() > Float.MIN_VALUE && entity.attackable()) {
+                if(entity.getHealth() > 0) {
+                    entity.setHealth(0.5f);
+                    entity.die(event.getSource());
                 }
             }
         }
