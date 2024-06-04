@@ -19,7 +19,7 @@ import java.util.Random;
 @EventBusSubscriber
 public class SpawnZombie {
     public static int i = 600;
-    public static boolean set = true;
+    public static boolean set = false;
     @SubscribeEvent
     public static void spawnEvent(PlayerTickEvent.Pre event) {
         Player player = event.getEntity();
@@ -36,7 +36,7 @@ public class SpawnZombie {
 
             for(int y = (int)py + 12; y >= (int)py - 12; --y) {
                 if (world.isEmptyBlock(new BlockPos(x,y,z)) && world.isEmptyBlock(new BlockPos(x, y + 1, z)) && !world.isEmptyBlock(new BlockPos(x,y-1,z))) {
-                    createZombie(x, y, z, world, player,1);
+                    createZombie(x, y, z, world, player);
                     break;
                 }
             }
@@ -58,18 +58,18 @@ public class SpawnZombie {
     }
 
 
-    public static void createZombie(int x, int y, int z, Level level, Player player,int i1) {
-        while(--i1>=0) {
-            Zombie zombie = new Zombie(level);
-            zombie.setPos(x, y, z);
-            zombie.getAttributes().getInstance(Attributes.MOVEMENT_SPEED).setBaseValue(0.3f);
-            zombie.setItemSlot(EquipmentSlot.HEAD,new ItemStack(Items.NETHERITE_HELMET));
-            zombie.setItemSlot(EquipmentSlot.CHEST,new ItemStack(Items.NETHERITE_CHESTPLATE));
-            zombie.setItemSlot(EquipmentSlot.LEGS,new ItemStack(Items.NETHERITE_LEGGINGS));
-            zombie.setItemSlot(EquipmentSlot.FEET,new ItemStack(Items.NETHERITE_BOOTS));
-            zombie.setItemSlot(EquipmentSlot.MAINHAND,new ItemStack(Items.NETHERITE_SWORD));
-            zombie.setTarget(player);
-            level.addFreshEntity(zombie);
-        }
+    public static void createZombie(int x, int y, int z, Level level, Player player) {
+        Zombie zombie = new Zombie(level);
+        zombie.setPos(x, y, z);
+        zombie.getAttributes().getInstance(Attributes.MOVEMENT_SPEED).setBaseValue(0.3f);
+        zombie.getAttributes().getInstance(Attributes.MAX_HEALTH).setBaseValue(80);
+        zombie.setHealth(zombie.getMaxHealth());
+        zombie.setItemSlot(EquipmentSlot.HEAD,new ItemStack(Items.NETHERITE_HELMET));
+        zombie.setItemSlot(EquipmentSlot.CHEST,new ItemStack(Items.NETHERITE_CHESTPLATE));
+        zombie.setItemSlot(EquipmentSlot.LEGS,new ItemStack(Items.NETHERITE_LEGGINGS));
+        zombie.setItemSlot(EquipmentSlot.FEET,new ItemStack(Items.NETHERITE_BOOTS));
+        zombie.setItemSlot(EquipmentSlot.MAINHAND,new ItemStack(Items.NETHERITE_SWORD));
+        zombie.setTarget(player);
+        level.addFreshEntity(zombie);
     }
 }
