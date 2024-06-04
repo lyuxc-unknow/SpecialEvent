@@ -19,8 +19,8 @@ public class LoadData {
      public static void onEntityJoinWorld(EntityJoinLevelEvent event) {
         if(!event.getLevel().isClientSide()) {
             if(event.getEntity() instanceof Player) {
-//                ruleList.add("none");
-//                ruleList.add("all");
+                ruleList.add("none");
+                ruleList.add("all");
                if(Config.RULE0.get()) {
                    ruleList.add(Config.oneHitOneKill);
                }
