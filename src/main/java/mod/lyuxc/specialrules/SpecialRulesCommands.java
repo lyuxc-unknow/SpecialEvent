@@ -18,7 +18,7 @@ public class SpecialRulesCommands {
                 .then(Commands.argument("settime",IntegerArgumentType.integer())
                     .executes(context -> {
                         int time = IntegerArgumentType.getInteger(context,"settime");
-                        context.getSource().getPlayer().sendSystemMessage(LoadData.setSwitchTime(time));
+                        context.getSource().getPlayerOrException().sendSystemMessage(LoadData.setSwitchTime(time));
                         return Command.SINGLE_SUCCESS;
                     })
                     .requires(r -> r.hasPermission(2))
@@ -27,7 +27,7 @@ public class SpecialRulesCommands {
                 .then(Commands.argument("setrule", StringArgumentType.string())
                     .executes(context -> {
                         String rule = StringArgumentType.getString(context,"setrule");
-                        context.getSource().getPlayer().sendSystemMessage(LoadData.setRule(rule));
+                        context.getSource().getPlayerOrException().sendSystemMessage(LoadData.setRule(rule));
                         return Command.SINGLE_SUCCESS;
                     })
                     .requires(r -> r.hasPermission(2))
@@ -35,13 +35,13 @@ public class SpecialRulesCommands {
             )
             .then(Commands.literal("gettime")
                 .executes(context -> {
-                    context.getSource().getPlayer().sendSystemMessage(LoadData.getSwitchTime());
+                    context.getSource().getPlayerOrException().sendSystemMessage(LoadData.getSwitchTime());
                     return Command.SINGLE_SUCCESS;
                 })
             )
             .then(Commands.literal("getrule")
                 .executes(context -> {
-                    context.getSource().getPlayer().sendSystemMessage(LoadData.getRule());
+                    context.getSource().getPlayerOrException().sendSystemMessage(LoadData.getRule());
                     return Command.SINGLE_SUCCESS;
                 })
             )

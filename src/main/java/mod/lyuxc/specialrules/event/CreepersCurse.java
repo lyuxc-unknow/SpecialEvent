@@ -28,7 +28,7 @@ public class CreepersCurse {
                     entity.setRemoved(Entity.RemovalReason.KILLED);
                     Creeper creeper = new Creeper(EntityType.CREEPER,level);
                     creeper.setPos(x,y,z);
-                    creeper.getAttributes().getInstance(Attributes.MOVEMENT_SPEED).setBaseValue(0.4f);
+                    creeper.getAttributes().getInstance(Attributes.MOVEMENT_SPEED).setBaseValue(0.5f);
                     level.addFreshEntity(creeper);
                 }
             }

@@ -10,6 +10,7 @@
   "specialRules.zombiePigPerish": "僵尸猪灵的亡魂",
   "specialRules.explodeHit": "掌中炸弹",
   "specialRules.speedUp": "怪物们疾如雷电",
+  "specialRules.snowmanImpersonator": "雪人能看到什么呢？",
   "specialRules.none": "Oops,没有任何事情发生",
   "specialRules.setRule": "事件切换成功,当前事件为 %s",
   "specialRules.currentRule": "当前事件为 %s",

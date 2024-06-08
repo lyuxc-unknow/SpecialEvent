@@ -10,6 +10,7 @@
   "specialRules.zombiePigPerish": "Zombified Piglin Rebirth",
   "specialRules.explodeHit": "Attack Explosion",
   "specialRules.speedUp": "Monsters are all Flash",
+  "specialRules.snowmanImpersonator": "Snowman's perspective",
   "specialRules.none": "Nothing happened",
   "specialRules.setRule": "Event switching is successful, the current event is %s",
   "specialRules.currentRule": "The current event is %s",

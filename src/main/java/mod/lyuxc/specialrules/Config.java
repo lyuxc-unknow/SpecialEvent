@@ -20,9 +20,10 @@ public class Config {
     public static final String zombiePigPerish = "zombiePigPerish";
     public static final String explodeHit = "explodeHit";
     public static final String speedUp = "speedUp";
+    public static final String snowmanImpersonator = "snowmanImpersonator";
     public static final String noneCurse = "none";
     public static final String allCurse = "all";
-    public static final List<String> allRule = List.of(oneHitOneKill,creepersCurse,invisibleCurse,spawnZombie,eternalCurse,longNight,zombiePigPerish,explodeHit,speedUp,noneCurse,allCurse);
+    public static final List<String> allRule = List.of(oneHitOneKill,creepersCurse,invisibleCurse,spawnZombie,eternalCurse,longNight,zombiePigPerish,explodeHit,speedUp,snowmanImpersonator,noneCurse,allCurse);
     public static void init(ModContainer modContainer) {
         RULES = builder.comment("允许的规则" + allRule).defineInList("启用的规则",allRule, Collections.singleton(allRule));
         SWITCH_TIME = builder.comment("设置切换一次规则所需要的时间，单位为秒").defineInRange("切换规则时间",900,1,3600);
