@@ -1,6 +1,7 @@
 package mod.lyuxc.specialrules.event;
 
 import mod.lyuxc.specialrules.Config;
+import mod.lyuxc.specialrules.world.LoadData;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.EquipmentSlot;
@@ -23,7 +24,7 @@ public class ZombiePigPerish {
     public static void onDeathRespawn(LivingDeathEvent event) {
         Entity entity = event.getEntity();
         Entity source = event.getSource().getEntity();
-        if(Config.nowRule.equals(Config.zombiePigPerish)) {
+        if(LoadData.getNowRule().equals(Config.zombiePigPerish) || LoadData.getNowRule().equals(Config.allCurse)) {
             if(source instanceof Player player &&
                 !(entity instanceof Piglin) &&
                 !(entity instanceof Ghast) &&

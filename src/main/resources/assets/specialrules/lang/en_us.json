@@ -1,0 +1,19 @@
+{
+  "specialRules.ruleTip": "The event has been switched, the current event is:%s",
+  "specialRules.all": "All",
+  "specialRules.oneHitOneKill": "One hit kill",
+  "specialRules.creepersCurse": "Creeper Curse",
+  "specialRules.invisibleCurse": "Invisible Curse",
+  "specialRules.spawnZombie": "Zombie Arena",
+  "specialRules.eternalCurse": "Eternal Curse",
+  "specialRules.longNight": "Eternal Night",
+  "specialRules.zombiePigPerish": "Zombified Piglin Rebirth",
+  "specialRules.explodeHit": "Attack Explosion",
+  "specialRules.speedUp": "Monsters are all Flash",
+  "specialRules.none": "Nothing happened",
+  "specialRules.setRule": "Event switching is successful, the current event is %s",
+  "specialRules.currentRule": "The current event is %s",
+  "specialRules.OutRange": "The value you entered is out of range.",
+  "specialRules.successSetTime": "Setting successful, %s seconds remaining",
+  "specialRules.getTime": "%s seconds until next switch time"
+}

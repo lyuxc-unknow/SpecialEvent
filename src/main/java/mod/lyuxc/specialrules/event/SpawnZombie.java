@@ -1,6 +1,7 @@
 package mod.lyuxc.specialrules.event;
 
 import mod.lyuxc.specialrules.Config;
+import mod.lyuxc.specialrules.world.LoadData;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.ai.attributes.Attributes;
@@ -46,7 +47,7 @@ public class SpawnZombie {
     @SubscribeEvent
     public static void timeEvent(LevelTickEvent.Pre event) {
         if(!event.getLevel().isClientSide()) {
-            if (Config.nowRule.equals(Config.spawnZombie) || Config.nowRule.equals(Config.allCurse)) {
+            if (LoadData.getNowRule().equals(Config.spawnZombie) || LoadData.getNowRule().equals(Config.allCurse)) {
                 if (i <= 0) {
                     set = true;
                     i = 1200;
@@ -56,8 +57,6 @@ public class SpawnZombie {
             }
         }
     }
-
-
     public static void createZombie(int x, int y, int z, Level level, Player player) {
         Zombie zombie = new Zombie(level);
         zombie.setPos(x, y, z);

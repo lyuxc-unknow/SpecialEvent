@@ -4,18 +4,13 @@ import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.config.ModConfig;
 import net.neoforged.neoforge.common.ModConfigSpec;
 
+import java.util.Collections;
+import java.util.List;
+
 public class Config {
-    public static String nowRule = "zombiePigPerish";
-    public static ModConfigSpec.Builder builder = new ModConfigSpec.Builder();
-    public static ModConfigSpec.BooleanValue RULE0;
-    public static ModConfigSpec.BooleanValue RULE1;
-    public static ModConfigSpec.BooleanValue RULE2;
-    public static ModConfigSpec.BooleanValue RULE3;
-    public static ModConfigSpec.BooleanValue RULE4;
-    public static ModConfigSpec.BooleanValue RULE5;
-    public static ModConfigSpec.BooleanValue RULE6;
-    public static ModConfigSpec.BooleanValue RULE7;
-    public static ModConfigSpec.BooleanValue RULE8;
+    private static final ModConfigSpec.Builder builder = new ModConfigSpec.Builder();
+    private static ModConfigSpec.ConfigValue<List<String>> RULES;
+    private static ModConfigSpec.IntValue SWITCH_TIME;
     public static final String oneHitOneKill = "oneHitOneKill";
     public static final String creepersCurse = "creepersCurse";
     public static final String invisibleCurse = "invisibleCurse";
@@ -27,16 +22,17 @@ public class Config {
     public static final String speedUp = "speedUp";
     public static final String noneCurse = "none";
     public static final String allCurse = "all";
+    public static final List<String> allRule = List.of(oneHitOneKill,creepersCurse,invisibleCurse,spawnZombie,eternalCurse,longNight,zombiePigPerish,explodeHit,speedUp,noneCurse,allCurse);
     public static void init(ModContainer modContainer) {
-        RULE0 = builder.comment("是否启用一击必杀").define("一击必杀",true);
-        RULE1 = builder.comment("是否启用苦力怕的诅咒").define("苦力怕的诅咒",true);
-        RULE2 = builder.comment("是否启用隐身诅咒").define("隐身诅咒",true);
-        RULE3 = builder.comment("是否启用僵尸擂台赛").define("僵尸擂台赛",true);
-        RULE4 = builder.comment("是否启用永生诅咒").define("永生诅咒",true);
-        RULE5 = builder.comment("是否启用永夜").define("永夜",true);
-        RULE6 = builder.comment("是否启用僵尸猪猪之亡音").define("僵尸猪猪之亡音",true);
-        RULE7 = builder.comment("是否启用攻击Boom!").define("攻击Boom!",true);
-        RULE8 = builder.comment("是否启用怪物都是闪电侠").define("怪物都是闪电侠",true);
-        modContainer.registerConfig(ModConfig.Type.COMMON, builder.build());
+        RULES = builder.comment("允许的规则" + allRule).defineInList("启用的规则",allRule, Collections.singleton(allRule));
+        SWITCH_TIME = builder.comment("设置切换一次规则所需要的时间，单位为秒").defineInRange("切换规则时间",900,1,3600);
+        modContainer.registerConfig(ModConfig.Type.SERVER, builder.build());
+    }
+    public static List<String> getRules() {
+        return RULES.get();
+    }
+
+    public static int getSwitchTime() {
+        return SWITCH_TIME.get() * 20;
     }
 }

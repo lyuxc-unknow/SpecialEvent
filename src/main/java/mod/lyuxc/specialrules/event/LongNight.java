@@ -1,6 +1,7 @@
 package mod.lyuxc.specialrules.event;
 
 import mod.lyuxc.specialrules.Config;
+import mod.lyuxc.specialrules.world.LoadData;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.level.GameRules;
 import net.minecraft.world.level.Level;
@@ -14,7 +15,7 @@ public class LongNight {
     public static void setNightAndRain(LevelTickEvent.Pre event) {
         Level level = event.getLevel();
         GameRules gameRules = event.getLevel().getGameRules();
-        if(Config.nowRule.equals(Config.longNight)) {
+        if(LoadData.getNowRule().equals(Config.longNight) || LoadData.getNowRule().equals(Config.allCurse)) {
             if(level instanceof ServerLevel level1) {
                 if(gameRules.getBoolean(GameRules.RULE_DAYLIGHT)) {
                     gameRules.getRule(GameRules.RULE_DAYLIGHT).set(false,level.getServer());
