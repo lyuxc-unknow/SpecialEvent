@@ -1,6 +1,6 @@
 {
-  "specialRules.ruleTip": "事件已切换,当前事件为:%s",
-  "specialRules.all": "所有事件!!!",
+  "specialRules.none": "Oops,没有任何事情发生",
+  "specialRules.all": "狂欢日!!!",
   "specialRules.oneHitOneKill": "一击必杀",
   "specialRules.creepersCurse": "苦力怕的诅咒",
   "specialRules.invisibleCurse": "隐身诅咒",
@@ -11,10 +11,13 @@
   "specialRules.explodeHit": "掌中炸弹",
   "specialRules.speedUp": "怪物们疾如雷电",
   "specialRules.snowmanImpersonator": "雪人能看到什么呢？",
-  "specialRules.none": "Oops,没有任何事情发生",
+  "specialRules.mobNotSplit": "怪物不再分裂",
+  "specialRules.dragonBoatFestival": "端午节",
+  "specialRules.experienceIsHealth": "经验既是生命",
+  "specialRules.ruleTip": "事件已切换,当前事件为 %s",
   "specialRules.setRule": "事件切换成功,当前事件为 %s",
   "specialRules.currentRule": "当前事件为 %s",
   "specialRules.OutRange": "输入的数值不在允许的范围内.",
   "specialRules.successSetTime": "设置时间成功,距离下一次切换时间还需 %s 秒",
-  "specialRules.getTime": "距离下一次切换事件还需%s秒"
+  "specialRules.getTime": "距离下一次切换事件还需 %s 秒"
 }

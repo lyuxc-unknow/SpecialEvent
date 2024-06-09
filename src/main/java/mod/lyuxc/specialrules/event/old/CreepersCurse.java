@@ -1,7 +1,7 @@
-package mod.lyuxc.specialrules.event;
+package mod.lyuxc.specialrules.event.old;
 
 import mod.lyuxc.specialrules.Config;
-import mod.lyuxc.specialrules.world.LoadData;
+import mod.lyuxc.specialrules.utils.RuleUtils;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.Mob;
@@ -17,7 +17,7 @@ import net.neoforged.neoforge.event.tick.EntityTickEvent;
 public class CreepersCurse {
     @SubscribeEvent
     public static void updateToCreeper(EntityTickEvent.Pre event) {
-        if(LoadData.getNowRule().equals(Config.creepersCurse) || LoadData.getNowRule().equals(Config.allCurse)) {
+        if(RuleUtils.isEnableRule(Config.creepersCurse)) {
             Entity entity = event.getEntity();
             if(entity instanceof Mob) {
                 if(!(entity instanceof Creeper) && !(entity instanceof Ghast)) {

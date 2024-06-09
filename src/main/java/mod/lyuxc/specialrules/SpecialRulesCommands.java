@@ -3,7 +3,7 @@ package mod.lyuxc.specialrules;
 import com.mojang.brigadier.Command;
 import com.mojang.brigadier.arguments.IntegerArgumentType;
 import com.mojang.brigadier.arguments.StringArgumentType;
-import mod.lyuxc.specialrules.world.LoadData;
+import mod.lyuxc.specialrules.world.RulesData;
 import net.minecraft.commands.Commands;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
@@ -18,7 +18,7 @@ public class SpecialRulesCommands {
                 .then(Commands.argument("settime",IntegerArgumentType.integer())
                     .executes(context -> {
                         int time = IntegerArgumentType.getInteger(context,"settime");
-                        context.getSource().getPlayerOrException().sendSystemMessage(LoadData.setSwitchTime(time));
+                        context.getSource().getPlayerOrException().sendSystemMessage(RulesData.setSwitchTime(time));
                         return Command.SINGLE_SUCCESS;
                     })
                     .requires(r -> r.hasPermission(2))
@@ -27,7 +27,7 @@ public class SpecialRulesCommands {
                 .then(Commands.argument("setrule", StringArgumentType.string())
                     .executes(context -> {
                         String rule = StringArgumentType.getString(context,"setrule");
-                        context.getSource().getPlayerOrException().sendSystemMessage(LoadData.setRule(rule));
+                        context.getSource().getPlayerOrException().sendSystemMessage(RulesData.setRule(rule));
                         return Command.SINGLE_SUCCESS;
                     })
                     .requires(r -> r.hasPermission(2))
@@ -35,13 +35,13 @@ public class SpecialRulesCommands {
             )
             .then(Commands.literal("gettime")
                 .executes(context -> {
-                    context.getSource().getPlayerOrException().sendSystemMessage(LoadData.getSwitchTime());
+                    context.getSource().getPlayerOrException().sendSystemMessage(RulesData.getSwitchTime());
                     return Command.SINGLE_SUCCESS;
                 })
             )
             .then(Commands.literal("getrule")
                 .executes(context -> {
-                    context.getSource().getPlayerOrException().sendSystemMessage(LoadData.getRule());
+                    context.getSource().getPlayerOrException().sendSystemMessage(RulesData.getRule());
                     return Command.SINGLE_SUCCESS;
                 })
             )

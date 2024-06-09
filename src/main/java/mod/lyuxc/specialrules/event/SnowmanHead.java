@@ -1,7 +1,7 @@
 package mod.lyuxc.specialrules.event;
 
 import mod.lyuxc.specialrules.Config;
-import mod.lyuxc.specialrules.world.LoadData;
+import mod.lyuxc.specialrules.utils.RuleUtils;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
@@ -20,7 +20,7 @@ public class SnowmanHead {
         pumpkinHead.enchant(Enchantments.BINDING_CURSE,1);
         pumpkinHead.enchant(Enchantments.VANISHING_CURSE,1);
         pumpkinHead.setCount(2);
-        if(LoadData.getNowRule().equals(Config.snowmanImpersonator)) {
+        if(RuleUtils.isEnableRule(Config.snowmanImpersonator)) {
             player.setItemSlot(EquipmentSlot.HEAD,pumpkinHead.copy());
         }else if(player.getItemBySlot(EquipmentSlot.HEAD).is(Items.CARVED_PUMPKIN) &&
                 player.getItemBySlot(EquipmentSlot.HEAD).getCount()==2) {

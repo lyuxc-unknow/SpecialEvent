@@ -1,7 +1,7 @@
-package mod.lyuxc.specialrules.event;
+package mod.lyuxc.specialrules.event.old;
 
 import mod.lyuxc.specialrules.Config;
-import mod.lyuxc.specialrules.world.LoadData;
+import mod.lyuxc.specialrules.utils.RuleUtils;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.level.Level;
@@ -16,7 +16,7 @@ public class ExplodedHit {
         Entity target = event.getEntity();
         Entity source = event.getSource().getEntity();
         Level level = target.level();
-        if(LoadData.getNowRule().equals(Config.explodeHit) || LoadData.getNowRule().equals(Config.allCurse)) {
+        if(RuleUtils.isEnableRule(Config.explodeHit)) {
             if (!event.getSource().getMsgId().contains("explosion")) {
                 float radius = event.getAmount() / 8.0F;
                 if (radius < 0.75F) radius = 0.75F;

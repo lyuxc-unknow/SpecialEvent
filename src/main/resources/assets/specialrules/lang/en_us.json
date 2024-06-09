@@ -1,5 +1,5 @@
 {
-  "specialRules.ruleTip": "The event has been switched, the current event is:%s",
+  "specialRules.none": "Nothing happened",
   "specialRules.all": "All",
   "specialRules.oneHitOneKill": "One hit kill",
   "specialRules.creepersCurse": "Creeper Curse",
@@ -11,7 +11,10 @@
   "specialRules.explodeHit": "Attack Explosion",
   "specialRules.speedUp": "Monsters are all Flash",
   "specialRules.snowmanImpersonator": "Snowman's perspective",
-  "specialRules.none": "Nothing happened",
+  "specialRules.mobNotSplit": "Mob Can‘t Split",
+  "specialRules.dragonBoatFestival": "端午节",
+  "specialRules.experienceIsHealth": "Experience is life",
+  "specialRules.ruleTip": "The event has been switched, the current event is %s",
   "specialRules.setRule": "Event switching is successful, the current event is %s",
   "specialRules.currentRule": "The current event is %s",
   "specialRules.OutRange": "The value you entered is out of range.",

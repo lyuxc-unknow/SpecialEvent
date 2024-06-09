@@ -1,7 +1,8 @@
-package mod.lyuxc.specialrules.event;
+package mod.lyuxc.specialrules.event.old;
 
 import mod.lyuxc.specialrules.Config;
-import mod.lyuxc.specialrules.world.LoadData;
+import mod.lyuxc.specialrules.utils.RuleUtils;
+import mod.lyuxc.specialrules.world.RulesData;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.level.GameRules;
 import net.minecraft.world.level.Level;
@@ -18,7 +19,7 @@ public class LongNight {
     public static void setNightAndRain(LevelTickEvent.Pre event) {
         Level level = event.getLevel();
         GameRules gameRules = event.getLevel().getGameRules();
-        if(LoadData.getNowRule().equals(Config.longNight) || LoadData.getNowRule().equals(Config.allCurse)) {
+        if(RuleUtils.isEnableRule(Config.longNight)) {
             if(level instanceof ServerLevel level1) {
                 if(gameRules.getBoolean(GameRules.RULE_DAYLIGHT)) {
                     gameRules.getRule(GameRules.RULE_DAYLIGHT).set(false,level.getServer());
@@ -39,7 +40,7 @@ public class LongNight {
     }
     @SubscribeEvent
     public static void disableRightOnLongNight(PlayerInteractEvent.RightClickBlock event) {
-        if(LoadData.getNowRule().equals(Config.longNight) || LoadData.getNowRule().equals(Config.allCurse)) {
+        if(RulesData.getNowRule().equals(Config.longNight) || RulesData.getNowRule().equals(Config.allCurse)) {
             if(isBedBlock(event.getLevel().getBlockState(event.getPos()).getBlock())) {
                 event.setCanceled(true);
             }

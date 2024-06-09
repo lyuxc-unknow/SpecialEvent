@@ -11,6 +11,8 @@ public class Config {
     private static final ModConfigSpec.Builder builder = new ModConfigSpec.Builder();
     private static ModConfigSpec.ConfigValue<List<String>> RULES;
     private static ModConfigSpec.IntValue SWITCH_TIME;
+    public static final String noneCurse = "none";
+    public static final String allCurse = "all";
     public static final String oneHitOneKill = "oneHitOneKill";
     public static final String creepersCurse = "creepersCurse";
     public static final String invisibleCurse = "invisibleCurse";
@@ -21,9 +23,13 @@ public class Config {
     public static final String explodeHit = "explodeHit";
     public static final String speedUp = "speedUp";
     public static final String snowmanImpersonator = "snowmanImpersonator";
-    public static final String noneCurse = "none";
-    public static final String allCurse = "all";
-    public static final List<String> allRule = List.of(oneHitOneKill,creepersCurse,invisibleCurse,spawnZombie,eternalCurse,longNight,zombiePigPerish,explodeHit,speedUp,snowmanImpersonator,noneCurse,allCurse);
+    public static final String mobNotSplit = "mobNotSplit";
+    public static final String dragonBoatFestival = "dragonBoatFestival";
+    public static final String experienceIsHealth = "experienceIsHealth";
+    public static final List<String> allRule = List.of(
+            noneCurse,allCurse,oneHitOneKill,creepersCurse,invisibleCurse,spawnZombie,eternalCurse,longNight,zombiePigPerish,explodeHit,speedUp,
+            snowmanImpersonator,mobNotSplit,dragonBoatFestival,experienceIsHealth
+    );
     public static void init(ModContainer modContainer) {
         RULES = builder.comment("允许的规则" + allRule).defineInList("启用的规则",allRule, Collections.singleton(allRule));
         SWITCH_TIME = builder.comment("设置切换一次规则所需要的时间，单位为秒").defineInRange("切换规则时间",900,1,3600);

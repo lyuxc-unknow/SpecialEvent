@@ -15,7 +15,7 @@ import java.io.File;
 import java.io.IOException;
 
 @EventBusSubscriber
-public class LoadData {
+public class RulesData {
     private static String nowRule = Config.noneCurse;
     private static SpecialRulesData specialRulesData;
     private static File saveFile;
