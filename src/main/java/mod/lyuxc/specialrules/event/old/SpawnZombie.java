@@ -1,7 +1,7 @@
 package mod.lyuxc.specialrules.event.old;
 
 import mod.lyuxc.specialrules.Config;
-import mod.lyuxc.specialrules.utils.RuleUtils;
+import mod.lyuxc.specialrules.utils.Utils;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.ai.attributes.Attributes;
@@ -47,7 +47,7 @@ public class SpawnZombie {
     @SubscribeEvent
     public static void timeEvent(LevelTickEvent.Pre event) {
         if(!event.getLevel().isClientSide()) {
-            if (RuleUtils.isEnableRule(Config.spawnZombie)) {
+            if (Utils.isEnableRule(Config.spawnZombie)) {
                 if (i <= 0) {
                     set = true;
                     i = 1200;

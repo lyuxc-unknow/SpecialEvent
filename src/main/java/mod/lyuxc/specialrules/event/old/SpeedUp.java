@@ -1,7 +1,7 @@
 package mod.lyuxc.specialrules.event.old;
 
 import mod.lyuxc.specialrules.Config;
-import mod.lyuxc.specialrules.utils.RuleUtils;
+import mod.lyuxc.specialrules.utils.Utils;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.monster.EnderMan;
@@ -19,7 +19,7 @@ public class SpeedUp {
     public static void speedUp(LivingChangeTargetEvent event) {
         Entity entity = event.getEntity();
         Entity target = event.getNewTarget();
-        if(RuleUtils.isEnableRule(Config.speedUp)) {
+        if(Utils.isEnableRule(Config.speedUp)) {
             if(target instanceof Player player && !(entity instanceof EnderMan)) {
                 Level level = event.getEntity().level();
                 double px = player.getX();

@@ -7,6 +7,7 @@
   "specialRules.spawnZombie": "Zombie Arena",
   "specialRules.eternalCurse": "Eternal Curse",
   "specialRules.longNight": "Eternal Night",
+  "specialRules.longNight.description": "An invisible force has stopped you. Tonight is destined to be a long and difficult night.",
   "specialRules.zombiePigPerish": "Zombified Piglin Rebirth",
   "specialRules.explodeHit": "Attack Explosion",
   "specialRules.speedUp": "Monsters are all Flash",
