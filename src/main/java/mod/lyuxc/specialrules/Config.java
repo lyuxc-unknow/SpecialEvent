@@ -26,9 +26,10 @@ public class Config {
     public static final String mobNotSplit = "mobNotSplit";
     public static final String dragonBoatFestival = "dragonBoatFestival";
     public static final String experienceIsHealth = "experienceIsHealth";
+    public static final String mobHasTotemOfUndying = "mobHasTotemOfUndying";
     public static final List<String> allRule = List.of(
             noneCurse,allCurse,oneHitOneKill,creepersCurse,invisibleCurse,spawnZombie,eternalCurse,longNight,zombiePigPerish,explodeHit,speedUp,
-            snowmanImpersonator,mobNotSplit,dragonBoatFestival,experienceIsHealth
+            snowmanImpersonator,mobNotSplit,dragonBoatFestival,experienceIsHealth,mobHasTotemOfUndying
     );
     public static void init(ModContainer modContainer) {
         RULES = builder.comment("允许的规则" + allRule).defineInList("启用的规则",allRule, Collections.singleton(allRule));

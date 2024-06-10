@@ -15,6 +15,7 @@
   "specialRules.mobNotSplit": "Mob Can‘t Split",
   "specialRules.dragonBoatFestival": "端午节",
   "specialRules.experienceIsHealth": "Experience is life",
+  "specialRules.mobHasTotemOfUndying": "Mobs have the Totem of Undying",
   "specialRules.ruleTip": "The event has been switched, the current event is %s",
   "specialRules.setRule": "Event switching is successful, the current event is %s",
   "specialRules.currentRule": "The current event is %s",
