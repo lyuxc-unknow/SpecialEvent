@@ -6,7 +6,6 @@ import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
-import net.minecraft.world.item.enchantment.Enchantments;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.tick.PlayerTickEvent;
@@ -17,8 +16,8 @@ public class SnowmanHead {
     public static void setPlayerHead(PlayerTickEvent.Pre event) {
         ItemStack pumpkinHead = new ItemStack(Items.CARVED_PUMPKIN);
         Player player = event.getEntity();
-        pumpkinHead.enchant(Enchantments.BINDING_CURSE,1);
-        pumpkinHead.enchant(Enchantments.VANISHING_CURSE,1);
+//        pumpkinHead.enchant(Enchantments.BINDING_CURSE,1);
+//        pumpkinHead.enchant(Enchantments.VANISHING_CURSE,1);
         pumpkinHead.setCount(2);
         if(Utils.isEnableRule(Config.snowmanImpersonator)) {
             if(player.getItemBySlot(EquipmentSlot.HEAD).isEmpty()) {

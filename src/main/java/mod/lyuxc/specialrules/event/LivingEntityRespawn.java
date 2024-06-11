@@ -15,7 +15,7 @@ import net.neoforged.neoforge.event.entity.living.LivingDeathEvent;
 @EventBusSubscriber
 public class LivingEntityRespawn {
     @SubscribeEvent
-    public static void livingEntityRespawnEvent(LivingDeathEvent event) {
+    public static void mobHasTotemOfUndying(LivingDeathEvent event) {
         Entity entity = event.getEntity();
         Level level = entity.level();
         if(Utils.isEnableRule(Config.mobHasTotemOfUndying)) {

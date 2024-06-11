@@ -65,7 +65,12 @@ public class RulesData {
         }
     }
     public static int getIndex(int maxIndex) {
-        return RandomSource.create().nextIntBetweenInclusive(0,maxIndex - 1);
+        int i;
+        do {
+            i = RandomSource.create().nextIntBetweenInclusive(0, maxIndex);
+        } while (i == specialRulesData.getRandomValue());
+        specialRulesData.setRandomValue(i);
+        return i;
     }
     public static String getNowRule() {
         return nowRule;
