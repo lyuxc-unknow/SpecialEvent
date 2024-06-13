@@ -23,13 +23,14 @@ public class Config {
     public static final String explodeHit = "explodeHit";
     public static final String speedUp = "speedUp";
     public static final String snowmanImpersonator = "snowmanImpersonator";
-    public static final String mobNotSplit = "mobNotSplit";
+    public static final String mobWillSplit = "mobWillSplit";
     public static final String dragonBoatFestival = "dragonBoatFestival";
     public static final String experienceIsHealth = "experienceIsHealth";
     public static final String mobHasTotemOfUndying = "mobHasTotemOfUndying";
+    public static final String eternalCursePlus = "eternalCursePlus";
     public static final List<String> allRule = List.of(
             noneCurse,allCurse,oneHitOneKill,creepersCurse,invisibleCurse,spawnZombie,eternalCurse,longNight,zombiePigPerish,explodeHit,speedUp,
-            snowmanImpersonator,mobNotSplit,dragonBoatFestival,experienceIsHealth,mobHasTotemOfUndying
+            snowmanImpersonator, mobWillSplit/*,dragonBoatFestival*/,experienceIsHealth,mobHasTotemOfUndying,eternalCursePlus
     );
     public static void init(ModContainer modContainer) {
         RULES = builder.comment("允许的规则" + allRule).defineInList("启用的规则",allRule, Collections.singleton(allRule));

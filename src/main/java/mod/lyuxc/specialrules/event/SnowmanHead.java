@@ -6,6 +6,7 @@ import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.item.enchantment.Enchantments;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.tick.PlayerTickEvent;
@@ -13,11 +14,11 @@ import net.neoforged.neoforge.event.tick.PlayerTickEvent;
 @EventBusSubscriber
 public class SnowmanHead {
     @SubscribeEvent
-    public static void setPlayerHead(PlayerTickEvent.Pre event) {
+    public static void snowmanHeadEvent(PlayerTickEvent.Pre event) {
         ItemStack pumpkinHead = new ItemStack(Items.CARVED_PUMPKIN);
         Player player = event.getEntity();
-//        pumpkinHead.enchant(Enchantments.BINDING_CURSE,1);
-//        pumpkinHead.enchant(Enchantments.VANISHING_CURSE,1);
+        Utils.addEnchantment(pumpkinHead,Enchantments.BINDING_CURSE,1);
+        Utils.addEnchantment(pumpkinHead,Enchantments.VANISHING_CURSE,1);
         pumpkinHead.setCount(2);
         if(Utils.isEnableRule(Config.snowmanImpersonator)) {
             if(player.getItemBySlot(EquipmentSlot.HEAD).isEmpty()) {
@@ -27,8 +28,7 @@ public class SnowmanHead {
                 player.setItemSlot(EquipmentSlot.HEAD,pumpkinHead);
                 player.addItem(itemInPlayerHead);
             }
-        }else if(player.getItemBySlot(EquipmentSlot.HEAD).is(Items.CARVED_PUMPKIN) &&
-                player.getItemBySlot(EquipmentSlot.HEAD).getCount()==2) {
+        }else if(ItemStack.isSameItem(player.getItemBySlot(EquipmentSlot.HEAD),pumpkinHead)) {
             player.setItemSlot(EquipmentSlot.HEAD,Items.AIR.getDefaultInstance());
         }
     }

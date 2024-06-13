@@ -4,13 +4,13 @@ import mod.lyuxc.specialrules.Config;
 import mod.lyuxc.specialrules.utils.Utils;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
-import net.neoforged.neoforge.event.entity.living.MobSplitEvent;
+import net.neoforged.neoforge.event.entity.living.LivingAttackEvent;
 
 @EventBusSubscriber
-public class MobNotSplit {
+public class EternalCursePlus {
     @SubscribeEvent
-    public static void mobNotSplit(MobSplitEvent event) {
-        if(Utils.isEnableRule(Config.mobNotSplit)) {
+    public static void eternalCursePlusEvent(LivingAttackEvent event) {
+        if(Utils.isEnableRule(Config.eternalCursePlus)) {
             event.setCanceled(true);
         }
     }

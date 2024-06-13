@@ -4,6 +4,7 @@ import net.minecraft.world.entity.player.Player;
 
 public class ExperienceUtils {
     /**
+     * 获取玩家当前经验等级等额的经验点数
      * @param level 传入玩家经验等级
      * */
     public static int getXpValue(int level) {
@@ -13,6 +14,10 @@ public class ExperienceUtils {
             return level >= 15 ? 37 + (level - 15) * 5 : 7 + level * 2;
         }
     }
+    /**
+     * 获取经验总和
+     * @param player 需要获取的玩家
+     * */
     public static int getXPoint(Player player) {
         return getXpValue(player.experienceLevel + 1) - player.getXpNeededForNextLevel();
     }
