@@ -22,7 +22,8 @@ public class ExperienceUtils {
         return getXpValue(player.experienceLevel + 1) - player.getXpNeededForNextLevel();
     }
     /**
-     * <a href="https://github.com/DenisMasterHerobrine/AngelRing/blob/a0dd7e3ca6c7831819da8345eccc5b58ab69323d/src/main/java/dev/denismasterherobrine/angelring/utils/ExperienceUtils.java#L113">public static void decreaseXP(Player player, float amount)</a>
+     * 减去玩家拥有的经验，原地址
+     * <a href="https://github.com/DenisMasterHerobrine/AngelRing/blob/master/src/main/java/dev/denismasterherobrine/angelring/utils/ExperienceUtils.java#L113">public static void decreaseXP(Player player, float amount)</a>
      * @param player 传入玩家需要修改的玩家
      * @param amount 减去的经验
      * */
