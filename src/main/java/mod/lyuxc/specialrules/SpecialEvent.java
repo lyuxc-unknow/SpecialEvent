@@ -8,16 +8,16 @@ import net.neoforged.fml.common.Mod;
 import java.util.Map;
 import java.util.TreeMap;
 
-@Mod("specialrules")
-public class SpecialRules {
+@Mod("specialevent")
+public class SpecialEvent {
     public static final Map<String, Component> translateMap = new TreeMap<>();
-    public SpecialRules(ModContainer modContainer) {
+    public SpecialEvent(ModContainer modContainer) {
         initMap();
         Config.init(modContainer);
     }
     public static void initMap() {
         for(String tranKey : Config.allRule) {
-            translateMap.put(tranKey,Component.translatable("specialRules." + tranKey).withStyle(ChatFormatting.AQUA));
+            translateMap.put(tranKey,Component.translatable("specialEvent." + tranKey).withStyle(ChatFormatting.AQUA));
         }
     }
 }

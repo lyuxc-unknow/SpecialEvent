@@ -1,7 +1,7 @@
 package mod.lyuxc.specialrules.utils;
 
 import mod.lyuxc.specialrules.Config;
-import mod.lyuxc.specialrules.world.RulesData;
+import mod.lyuxc.specialrules.world.EventData;
 import net.minecraft.core.Holder;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.Registries;
@@ -29,7 +29,7 @@ public class Utils {
      * @param rule 需要判断的规则
      * */
     public static boolean isEnableRule(String rule) {
-        return RulesData.getNowRule().equals(rule) || RulesData.getNowRule().equals(Config.allCurse);
+        return EventData.getNowRule().equals(rule) || EventData.getNowRule().equals(Config.allCurse);
     }
 
     /**

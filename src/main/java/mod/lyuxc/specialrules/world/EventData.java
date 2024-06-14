@@ -1,7 +1,7 @@
 package mod.lyuxc.specialrules.world;
 
 import mod.lyuxc.specialrules.Config;
-import mod.lyuxc.specialrules.SpecialRules;
+import mod.lyuxc.specialrules.SpecialEvent;
 import net.minecraft.network.chat.Component;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.player.Player;
@@ -15,9 +15,9 @@ import java.io.File;
 import java.io.IOException;
 
 @EventBusSubscriber
-public class RulesData {
+public class EventData {
     private static String nowRule = Config.noneCurse;
-    private static SpecialRulesData specialRulesData;
+    private static LevelEventData levelEventData;
     private static File saveFile;
     private static int time = 0;
     @SubscribeEvent
@@ -27,7 +27,7 @@ public class RulesData {
             time = 0;
             nowRule = Config.getRules().get(getIndex(Config.getRules().size()));
             for(Player player : event.getServer().getPlayerList().getPlayers()) {
-                player.sendSystemMessage(Component.translatable("specialRules.ruleTip", SpecialRules.translateMap.get(nowRule)));
+                player.sendSystemMessage(Component.translatable("specialEvent.ruleTip", SpecialEvent.translateMap.get(nowRule)));
             }
         }
     }
@@ -36,29 +36,29 @@ public class RulesData {
         if(!event.getLevel().isClientSide()) {
             if(event.getLevel().getServer() != null) {
                 File worldDir = event.getLevel().getServer().getWorldPath(LevelResource.ROOT).toFile();
-                saveFile = new File(worldDir, "special_rule_data.json");
+                saveFile = new File(worldDir, "special_event_data.json");
                 if (saveFile.exists()) {
                     try {
-                        specialRulesData = SpecialRulesData.load(saveFile);
+                        levelEventData = LevelEventData.load(saveFile);
 
                     } catch (IOException e) {
                         e.fillInStackTrace();
                     }
                 } else {
-                    specialRulesData = new SpecialRulesData();
+                    levelEventData = new LevelEventData();
                 }
-                nowRule = specialRulesData.getRule();
-                time = specialRulesData.getSwitchTime();
+                nowRule = levelEventData.getRule();
+                time = levelEventData.getSwitchTime();
             }
         }
     }
     @SubscribeEvent
     public static void onWorldSave(LevelEvent.Save event) {
-        if (!event.getLevel().isClientSide() && specialRulesData != null) {
+        if (!event.getLevel().isClientSide() && levelEventData != null) {
             try {
-                specialRulesData.setRule(nowRule);
-                specialRulesData.setSwitchTime(time);
-                specialRulesData.save(saveFile);
+                levelEventData.setRule(nowRule);
+                levelEventData.setSwitchTime(time);
+                levelEventData.save(saveFile);
             } catch (IOException e) {
                 e.fillInStackTrace();
             }
@@ -68,8 +68,8 @@ public class RulesData {
         int i;
         do {
             i = RandomSource.create().nextIntBetweenInclusive(0, maxIndex - 1);
-        } while (i == specialRulesData.getRandomValue());
-        specialRulesData.setRandomValue(i);
+        } while (i == levelEventData.getRandomValue());
+        levelEventData.setRandomValue(i);
         return i;
     }
     public static String getNowRule() {
@@ -79,24 +79,24 @@ public class RulesData {
         if(Config.getRules().contains(rule)) {
             nowRule = rule;
             time = 0;
-            return Component.translatable("specialRules.setRule",SpecialRules.translateMap.get(nowRule));
+            return Component.translatable("specialEvent.setRule", SpecialEvent.translateMap.get(nowRule));
         } else {
-            return Component.translatable("specialRules.OutRange");
+            return Component.translatable("specialEvent.OutRange");
         }
     }
     public static Component getRule() {
-        return Component.translatable("specialRules.currentRule",SpecialRules.translateMap.get(nowRule));
+        return Component.translatable("specialEvent.currentRule", SpecialEvent.translateMap.get(nowRule));
     }
     public static Component getSwitchTime() {
         int copyTime = time;
-        return Component.translatable("specialRules.getTime",(Config.getSwitchTime() - copyTime) / 20);
+        return Component.translatable("specialEvent.getTime",(Config.getSwitchTime() - copyTime) / 20);
     }
     public static Component setSwitchTime(int newTime) {
         if(newTime > Config.getSwitchTime()) {
-            return Component.translatable("specialRules.OutRange");
+            return Component.translatable("specialEvent.OutRange");
         } else {
             time = newTime * 20;
-            return Component.translatable("specialRules.successSetTime",(Config.getSwitchTime() - newTime * 20) / 20);
+            return Component.translatable("specialEvent.successSetTime",(Config.getSwitchTime() - newTime * 20) / 20);
         }
     }
 }

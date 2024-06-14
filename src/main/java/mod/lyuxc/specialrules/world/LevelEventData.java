@@ -9,7 +9,7 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 
-public class SpecialRulesData {
+public class LevelEventData {
     private static final Gson GSON = new GsonBuilder().setPrettyPrinting().create();
     private String rule = Config.noneCurse;
     private int switchTime = 0;
@@ -45,9 +45,9 @@ public class SpecialRulesData {
         }
     }
 
-    public static SpecialRulesData load(File file) throws IOException {
+    public static LevelEventData load(File file) throws IOException {
         try (FileReader reader = new FileReader(file)) {
-            return GSON.fromJson(reader,SpecialRulesData.class);
+            return GSON.fromJson(reader, LevelEventData.class);
         }
     }
 }
