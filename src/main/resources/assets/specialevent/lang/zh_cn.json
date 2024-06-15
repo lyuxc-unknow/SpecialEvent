@@ -17,6 +17,7 @@
   "specialEvent.experienceIsHealth": "经验即生命",
   "specialEvent.mobHasTotemOfUndying": "怪物拥有不死图腾",
   "specialEvent.eternalCursePlus": "难度:和平",
+  "specialEvent.eventIsChanging": "事件即将更改",
   "specialEvent.ruleTip": "事件已切换,当前事件为 %s",
   "specialEvent.setRule": "事件切换成功,当前事件为 %s",
   "specialEvent.currentRule": "当前事件为 %s",

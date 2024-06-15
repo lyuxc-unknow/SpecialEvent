@@ -5,8 +5,10 @@ import mod.lyuxc.specialrules.world.EventData;
 import net.minecraft.core.Holder;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.Registries;
+import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.server.players.PlayerList;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.Entity;
@@ -38,6 +40,7 @@ public class Utils {
      * @param hunger 饥饿值
      * @param saturation 饱和度
      * */
+    @SuppressWarnings("unused")
     public static void setPlayerHunger(Player player, int hunger, float saturation) {
         FoodData foodData = player.getFoodData();
         foodData.setFoodLevel(hunger);
@@ -102,6 +105,15 @@ public class Utils {
     public static void loopExecute(Runnable runnable,int frequency) {
         for(int i=0;i<frequency;i++) {
             runnable.run();
+        }
+    }
+
+    /**
+     * 全局广播
+     * */
+    public static void sendSystemMessageToAllPlayer(PlayerList playerList,Component message) {
+        for(Player player : playerList.getPlayers()) {
+            player.sendSystemMessage(message);
         }
     }
 }

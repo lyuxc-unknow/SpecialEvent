@@ -2,9 +2,10 @@ package mod.lyuxc.specialrules.world;
 
 import mod.lyuxc.specialrules.Config;
 import mod.lyuxc.specialrules.SpecialEvent;
+import mod.lyuxc.specialrules.utils.Utils;
+import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.util.RandomSource;
-import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.storage.LevelResource;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
@@ -20,15 +21,18 @@ public class EventData {
     private static LevelEventData levelEventData;
     private static File saveFile;
     private static int time = 0;
+    private static boolean isSend = false;
     @SubscribeEvent
     public static void onTickEvent(ServerTickEvent.Pre event) {
         time++;
         if(time >= Config.getSwitchTime()) {
             time = 0;
+            isSend = false;
             nowRule = Config.getRules().get(getIndex(Config.getRules().size()));
-            for(Player player : event.getServer().getPlayerList().getPlayers()) {
-                player.sendSystemMessage(Component.translatable("specialEvent.ruleTip", SpecialEvent.translateMap.get(nowRule)));
-            }
+            Utils.sendSystemMessageToAllPlayer(event.getServer().getPlayerList(), Component.translatable("specialEvent.ruleTip", SpecialEvent.translateMap.get(nowRule)));
+        } else if(time >= Config.getSwitchTime() * 0.9 && !isSend) {
+            isSend = true;
+            Utils.sendSystemMessageToAllPlayer(event.getServer().getPlayerList(), Component.translatable("specialEvent.eventIsChanging").withStyle(ChatFormatting.AQUA));
         }
     }
     @SubscribeEvent

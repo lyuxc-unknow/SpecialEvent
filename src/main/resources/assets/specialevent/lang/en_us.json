@@ -17,6 +17,7 @@
   "specialEvent.experienceIsHealth": "Experience is life",
   "specialEvent.mobHasTotemOfUndying": "Mobs have the Totem of Undying",
   "specialEvent.eternalCursePlus": "Difficulty:Peaceful",
+  "specialEvent.eventIsChanging": "Event is changing",
   "specialEvent.ruleTip": "The event has been switched, the current event is %s",
   "specialEvent.setRule": "Event switching is successful, the current event is %s",
   "specialEvent.currentRule": "The current event is %s",
