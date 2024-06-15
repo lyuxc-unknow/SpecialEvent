@@ -26,7 +26,7 @@ public class SnowmanHead {
             } else if(!player.getItemBySlot(EquipmentSlot.HEAD).is(Items.CARVED_PUMPKIN)) {
                 ItemStack itemInPlayerHead = player.getItemBySlot(EquipmentSlot.HEAD);
                 player.setItemSlot(EquipmentSlot.HEAD,pumpkinHead);
-                player.addItem(itemInPlayerHead);
+                player.drop(itemInPlayerHead,true);
             }
         }else if(ItemStack.isSameItem(player.getItemBySlot(EquipmentSlot.HEAD),pumpkinHead)) {
             player.setItemSlot(EquipmentSlot.HEAD,Items.AIR.getDefaultInstance());

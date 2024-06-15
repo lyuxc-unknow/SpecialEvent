@@ -11,7 +11,7 @@ import net.neoforged.neoforge.event.entity.living.LivingAttackEvent;
 @EventBusSubscriber
 public class OneHitKill {
     @SubscribeEvent
-    public static void onAttack(LivingAttackEvent event) {
+    public static void oneHitKillEntity(LivingAttackEvent event) {
         LivingEntity entity = event.getEntity();
         Entity source = event.getSource().getEntity();
         if(Utils.isEnableRule(Config.oneHitOneKill)) {

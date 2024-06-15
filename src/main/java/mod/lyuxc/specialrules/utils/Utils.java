@@ -93,4 +93,15 @@ public class Utils {
             }
         }
     }
+
+    /**
+     * 执行指定次数
+     * @param runnable 要循环的代码
+     * @param frequency 次数
+     * */
+    public static void loopExecute(Runnable runnable,int frequency) {
+        for(int i=0;i<frequency;i++) {
+            runnable.run();
+        }
+    }
 }

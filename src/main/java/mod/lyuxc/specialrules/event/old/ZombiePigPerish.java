@@ -30,23 +30,26 @@ public class ZombiePigPerish {
                 !(entity instanceof Ghast) &&
                 !(entity instanceof Guardian) &&
                 !entity.level().isClientSide()) {
-                Level level = entity.level();
-                double x = entity.getX();
-                double y = entity.getY();
-                double z = entity.getZ();
-                ZombifiedPiglin zombifiedPiglin = new ZombifiedPiglin(EntityType.ZOMBIFIED_PIGLIN,level);
-                zombifiedPiglin.setPos(x,y,z);
-                zombifiedPiglin.setItemSlot(EquipmentSlot.HEAD,new ItemStack(Items.GOLDEN_HELMET));
-                zombifiedPiglin.setItemSlot(EquipmentSlot.CHEST,new ItemStack(Items.GOLDEN_CHESTPLATE));
-                zombifiedPiglin.setItemSlot(EquipmentSlot.LEGS,new ItemStack(Items.GOLDEN_LEGGINGS));
-                zombifiedPiglin.setItemSlot(EquipmentSlot.FEET,new ItemStack(Items.GOLDEN_BOOTS));
-                zombifiedPiglin.setItemSlot(EquipmentSlot.MAINHAND,new ItemStack(Items.GOLDEN_AXE));
-                zombifiedPiglin.getAttributes().getInstance(Attributes.MAX_HEALTH).setBaseValue(80);
-                zombifiedPiglin.setHealth(zombifiedPiglin.getMaxHealth());
-                zombifiedPiglin.getAttributes().getInstance(Attributes.ATTACK_DAMAGE).setBaseValue(14);
-                zombifiedPiglin.setTarget(player);
-                level.addFreshEntity(zombifiedPiglin);
+                spawnZombiePigPerish(entity,player);
             }
         }
+    }
+    private static void spawnZombiePigPerish(Entity entity,Player targetPlayer) {
+        Level level = entity.level();
+        double x = entity.getX();
+        double y = entity.getY();
+        double z = entity.getZ();
+        ZombifiedPiglin zombifiedPiglin = new ZombifiedPiglin(EntityType.ZOMBIFIED_PIGLIN,level);
+        zombifiedPiglin.setPos(x,y,z);
+        zombifiedPiglin.setItemSlot(EquipmentSlot.HEAD,new ItemStack(Items.GOLDEN_HELMET));
+        zombifiedPiglin.setItemSlot(EquipmentSlot.CHEST,new ItemStack(Items.GOLDEN_CHESTPLATE));
+        zombifiedPiglin.setItemSlot(EquipmentSlot.LEGS,new ItemStack(Items.GOLDEN_LEGGINGS));
+        zombifiedPiglin.setItemSlot(EquipmentSlot.FEET,new ItemStack(Items.GOLDEN_BOOTS));
+        zombifiedPiglin.setItemSlot(EquipmentSlot.MAINHAND,new ItemStack(Items.GOLDEN_AXE));
+        zombifiedPiglin.getAttributes().getInstance(Attributes.MAX_HEALTH).setBaseValue(80);
+        zombifiedPiglin.setHealth(zombifiedPiglin.getMaxHealth());
+        zombifiedPiglin.getAttributes().getInstance(Attributes.ATTACK_DAMAGE).setBaseValue(14);
+        zombifiedPiglin.setTarget(targetPlayer);
+        level.addFreshEntity(zombifiedPiglin);
     }
 }

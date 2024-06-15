@@ -11,7 +11,7 @@ import net.neoforged.neoforge.event.entity.EntityJoinLevelEvent;
 @EventBusSubscriber
 public class EternalCurse {
     @SubscribeEvent
-    public static void onEntityJoinWorld(EntityJoinLevelEvent event) {
+    public static void eternalCurseEvent(EntityJoinLevelEvent event) {
         if(Utils.isEnableRule(Config.eternalCurse)) {
             if(event.getEntity() instanceof Mob mob) {
                 mob.getAttributes().getInstance(Attributes.MAX_HEALTH).setBaseValue(Integer.MAX_VALUE);

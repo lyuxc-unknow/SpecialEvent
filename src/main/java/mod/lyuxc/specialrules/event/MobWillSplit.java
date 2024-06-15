@@ -15,8 +15,7 @@ public class MobWillSplit {
         if(Utils.isEnableRule(Config.mobWillSplit)) {
             Entity entity = event.getEntity();
             Level level = entity.level();
-            Utils.addLivingEntityToLevel(level,entity);
-            Utils.addLivingEntityToLevel(level,entity);
+            Utils.loopExecute(() -> Utils.addLivingEntityToLevel(level,entity),2);
         }
     }
 }

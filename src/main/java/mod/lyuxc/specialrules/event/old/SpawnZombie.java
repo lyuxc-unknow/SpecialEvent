@@ -57,7 +57,7 @@ public class SpawnZombie {
             }
         }
     }
-    public static void createZombie(int x, int y, int z, Level level, Player player) {
+    private static void createZombie(int x, int y, int z, Level level, Player player) {
         Zombie zombie = new Zombie(level);
         zombie.setPos(x, y, z);
         zombie.getAttributes().getInstance(Attributes.MOVEMENT_SPEED).setBaseValue(0.3f);

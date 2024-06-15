@@ -41,7 +41,7 @@ public class LongNight {
     public static void disableRightOnLongNight(PlayerInteractEvent.RightClickBlock event) {
         if(Utils.isEnableRule(Config.longNight)) {
             if(event.getLevel().getBlockState(event.getPos()).is(BlockTags.BEDS)) {
-                event.getEntity().displayClientMessage(Component.translatable("specialRules.longNight.description"),true);
+                event.getEntity().displayClientMessage(Component.translatable("specialEvent.longNight.description"),true);
                 event.setCanceled(true);
             }
         }

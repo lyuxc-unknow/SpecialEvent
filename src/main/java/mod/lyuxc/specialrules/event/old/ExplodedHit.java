@@ -12,7 +12,7 @@ import net.neoforged.neoforge.event.entity.living.LivingHurtEvent;
 @EventBusSubscriber
 public class ExplodedHit {
     @SubscribeEvent
-    public static void onHurt(LivingHurtEvent event) {
+    public static void explodeHitEvent(LivingHurtEvent event) {
         Entity target = event.getEntity();
         Entity source = event.getSource().getEntity();
         Level level = target.level();
