@@ -7,12 +7,12 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.level.Level;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
-import net.neoforged.neoforge.event.entity.living.LivingHurtEvent;
+import net.neoforged.neoforge.event.entity.living.LivingIncomingDamageEvent;
 
 @EventBusSubscriber
 public class ExplodedHit {
     @SubscribeEvent
-    public static void explodeHitEvent(LivingHurtEvent event) {
+    public static void explodeHitEvent(LivingIncomingDamageEvent event) {
         Entity target = event.getEntity();
         Entity source = event.getSource().getEntity();
         Level level = target.level();

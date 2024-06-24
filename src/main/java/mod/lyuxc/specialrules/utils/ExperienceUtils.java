@@ -14,6 +14,7 @@ public class ExperienceUtils {
             return level >= 15 ? 37 + (level - 15) * 5 : 7 + level * 2;
         }
     }
+
     /**
      * 获取经验总和
      * @param player 需要获取的玩家
@@ -21,6 +22,7 @@ public class ExperienceUtils {
     public static int getXPoint(Player player) {
         return getXpValue(player.experienceLevel + 1) - player.getXpNeededForNextLevel();
     }
+
     /**
      * 减去玩家拥有的经验，原地址
      * <a href="https://github.com/DenisMasterHerobrine/AngelRing/blob/master/src/main/java/dev/denismasterherobrine/angelring/utils/ExperienceUtils.java#L113">public static void decreaseXP(Player player, float amount)</a>

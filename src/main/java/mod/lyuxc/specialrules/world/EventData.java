@@ -22,6 +22,7 @@ public class EventData {
     private static File saveFile;
     private static int time = 0;
     private static boolean isSend = false;
+
     @SubscribeEvent
     public static void onTickEvent(ServerTickEvent.Pre event) {
         time++;
@@ -35,6 +36,7 @@ public class EventData {
             Utils.sendSystemMessageToAllPlayer(event.getServer().getPlayerList(), Component.translatable("specialEvent.eventIsChanging").withStyle(ChatFormatting.AQUA));
         }
     }
+
     @SubscribeEvent
     public static void onWorldLoad(LevelEvent.Load event) {
         if(!event.getLevel().isClientSide()) {
@@ -56,6 +58,7 @@ public class EventData {
             }
         }
     }
+
     @SubscribeEvent
     public static void onWorldSave(LevelEvent.Save event) {
         if (!event.getLevel().isClientSide() && levelEventData != null) {
@@ -68,6 +71,7 @@ public class EventData {
             }
         }
     }
+
     public static int getIndex(int maxIndex) {
         int i;
         do {
@@ -76,9 +80,11 @@ public class EventData {
         levelEventData.setRandomValue(i);
         return i;
     }
+
     public static String getNowRule() {
         return nowRule;
     }
+
     public static Component setRule(String rule) {
         if(Config.getRules().contains(rule)) {
             nowRule = rule;
@@ -88,13 +94,16 @@ public class EventData {
             return Component.translatable("specialEvent.OutRange");
         }
     }
+
     public static Component getRule() {
         return Component.translatable("specialEvent.currentRule", SpecialEvent.translateMap.get(nowRule));
     }
+
     public static Component getSwitchTime() {
         int copyTime = time;
         return Component.translatable("specialEvent.getTime",(Config.getSwitchTime() - copyTime) / 20);
     }
+
     public static Component setSwitchTime(int newTime) {
         if(newTime > Config.getSwitchTime()) {
             return Component.translatable("specialEvent.OutRange");
