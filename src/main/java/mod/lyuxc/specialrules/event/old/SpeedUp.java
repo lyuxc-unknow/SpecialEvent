@@ -18,7 +18,7 @@ public class SpeedUp {
     @SubscribeEvent
     public static void speedUp(LivingChangeTargetEvent event) {
         Entity entity = event.getEntity();
-        Entity target = event.getNewTarget();
+        Entity target = event.getNewAboutToBeSetTarget();
         if(Utils.isEnableRule(Config.speedUp)) {
             if(target instanceof Player player && !(entity instanceof EnderMan)) {
                 Level level = event.getEntity().level();
