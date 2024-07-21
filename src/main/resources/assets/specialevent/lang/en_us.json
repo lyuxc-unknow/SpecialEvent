@@ -23,5 +23,12 @@
   "specialEvent.currentRule": "The current event is %s",
   "specialEvent.OutRange": "The value you entered is out of range.",
   "specialEvent.successSetTime": "Setting successful, %s seconds remaining",
-  "specialEvent.getTime": "%s seconds until next switch time"
+  "specialEvent.getTime": "%s seconds until next switch time",
+  "specialevent.configuration.timeToSwitchRules": "Time to Switch Rules",
+  "specialevent.configuration.enableRules": "Enabled Rules",
+  "specialevent.configuration.enableRules.tooltip": "This is a list of enabled events.",
+  "specialevent.configuration.section.specialevent.common.toml.title": "Special Event Mod Config",
+  "specialevent.configuration.section.specialevent.common.toml": "",
+  "specialevent.configuration.title": "",
+  "specialevent.configuration.timeToSwitchRules.tooltip": "Switching event time"
 }

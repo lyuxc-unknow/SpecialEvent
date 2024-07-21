@@ -23,5 +23,12 @@
   "specialEvent.currentRule": "当前事件为 %s",
   "specialEvent.OutRange": "输入的数值不在允许的范围内.",
   "specialEvent.successSetTime": "设置时间成功,距离下一次切换时间还需 %s 秒",
-  "specialEvent.getTime": "距离下一次切换事件还需 %s 秒"
+  "specialEvent.getTime": "距离下一次切换事件还需 %s 秒",
+  "specialevent.configuration.timeToSwitchRules": "切换事件的时间(单位为秒)",
+  "specialevent.configuration.enableRules": "启用的事件",
+  "specialevent.configuration.enableRules.tooltip": "这个列表包含了所有启用的事件",
+  "specialevent.configuration.section.specialevent.common.toml.title": "特殊事件模组配置",
+  "specialevent.configuration.section.specialevent.common.toml": "",
+  "specialevent.configuration.title": "",
+  "specialevent.configuration.timeToSwitchRules.tooltip": "切换事件时间"
 }

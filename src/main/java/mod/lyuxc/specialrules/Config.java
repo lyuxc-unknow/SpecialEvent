@@ -33,9 +33,9 @@ public class Config {
             snowmanImpersonator, mobWillSplit,experienceIsHealth,mobHasTotemOfUndying,eternalCursePlus
     );
     public static void init(ModContainer modContainer) {
-        RULES = builder.comment("允许的规则" + allRule).defineInList("启用的规则",allRule, Collections.singleton(allRule));
-        SWITCH_TIME = builder.comment("设置切换一次规则所需要的时间，单位为秒").defineInRange("切换规则时间",900,1,3600);
-        modContainer.registerConfig(ModConfig.Type.SERVER, builder.build());
+        RULES = builder.comment("Enabled Rules" + allRule).worldRestart().defineInList("enableRules",allRule, Collections.singleton(allRule));
+        SWITCH_TIME = builder.comment("Time to switch rules(in seconds)").defineInRange("timeToSwitchRules",900,1,3600);
+        modContainer.registerConfig(ModConfig.Type.COMMON, builder.build());
     }
     public static List<String> getRules() {
         return RULES.get();
@@ -44,4 +44,5 @@ public class Config {
     public static int getSwitchTime() {
         return SWITCH_TIME.get() * 20;
     }
+
 }
